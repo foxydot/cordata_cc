@@ -1,7 +1,7 @@
 @import 'lesshat';
 /* Import Fonts
 ------------------------------------------------------------ */
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700|Roboto);
 
 /* Font Stacks */
 .customserif(@size:1.6) {
@@ -12,19 +12,15 @@
   line-height: 1.625;
 }
 .custombody(@size:1.6) {
-  font-family: "Raleway","Helvetica Neue", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto","Helvetica Neue", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: unit((@size*10),px);
   font-size: unit(@size,rem);
   line-height: 1.625;
 }
 
-.custombodythin(@size:1.6){
-  .custombody(@size);
-  font-family: "Helvetica Neue Thin", "Trebuchet MS", Calibri, sans-serif;
-}
 .customheader(@size:1.6) {
-  font-family: "Raleway","Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed","Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: unit((@size*10),px);
   font-size: unit(@size,rem);
@@ -41,11 +37,11 @@
 
 /* Colors */
 @red: #f00;
-@orange: #f90;
+@orange: #FB9816;
 @yellow: #ff0;
 @green: #9CA728;
-@blue: #4192CA;
-@purple: #90f;
+@blue: #005DB9;
+@purple: #71308A;
 @beige: #c96;
 @brown: #630;
 
@@ -73,7 +69,7 @@
 @ltgrey: #959595;
 @mdgrey: #7F7F7F;
 @medgrey: @mdgrey;
-@dkgrey: #545454;
+@dkgrey: #606062;
 @black: #000;
 
 //mixins for social colors
@@ -92,6 +88,17 @@
 @sharethis: #00BF00;
 @contact: #999999;
 @rss: #F37D2A;
+
+.background-gradient{
+  background: @white; /* Old browsers */
+background: -moz-linear-gradient(top,  fade(@white,100%) 0%, fade(@offwhite,100%) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,fade(@white,100%)), color-stop(100%,fade(@offwhite,100%))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  fade(@white,100%) 0%,fade(@offwhite,100%) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  fade(@white,100%) 0%,fade(@offwhite,100%) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  fade(@white,100%) 0%,fade(@offwhite,100%) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  fade(@white,100%) 0%,fade(@offwhite,100%) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@white', endColorstr='@offwhite',GradientType=0 ); /* IE6-9 */
+}
 
 /* Arrows */
 .arrow-down(@color:@white){

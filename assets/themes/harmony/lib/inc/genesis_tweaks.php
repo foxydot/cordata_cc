@@ -22,14 +22,14 @@ add_action('wp_head','msdlab_maybe_wrap_inner');
 add_action('wp_head','msdlab_make_it_homepage');
 add_filter( 'genesis_search_text', 'msdlab_search_text' ); //customizes the serach bar placeholder
 add_filter('genesis_search_button_text', 'msdlab_search_button'); //customize the search form to add fontawesome search button.
-add_action('genesis_before_header','msdlab_pre_header');
+add_action('genesis_after_header','msdlab_pre_header',4);
 
 /**
  * Move secodary nav into pre-header
  */
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
-//add_action( 'msdlab_pre_header', 'genesis_do_subnav' );
 add_action('msdlab_pre_header','msdlab_pre_header_sidebar');
+add_action( 'msdlab_pre_header', 'genesis_do_subnav' );
 
 remove_action('genesis_header','genesis_do_header' );
 add_action('genesis_header','msdlab_do_header' );
@@ -40,8 +40,8 @@ add_action('genesis_header','msdlab_header_right' );
 /**
  * Move nav into header
  */
-remove_action( 'genesis_after_header', 'genesis_do_nav' );
-add_action( 'genesis_header', 'msdlab_do_nav' );
+//remove_action( 'genesis_after_header', 'genesis_do_nav' );
+//add_action( 'genesis_header', 'msdlab_do_nav' );
 
 /*** SIDEBARS ***/
 add_action('genesis_before', 'msdlab_ro_layout_logic'); //This ensures that the primary sidebar is always to the left.

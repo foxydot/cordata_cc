@@ -1,10 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700);
 /* Import Fonts
 ------------------------------------------------------------ */
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700|Roboto);
 /* Font Stacks */
 .customsansserif,
 .customsanserif {
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -15,14 +15,32 @@
 }
 /* Colors */
 /* Neutrals */
+.background-gradient {
+  background: #ffffff;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f2f3f5));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #ffffff 0%, #f2f3f5 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@white', endColorstr='@offwhite', GradientType=0);
+  /* IE6-9 */
+}
 /* Arrows */
 /* Buttons */
 .button:hover,
 .button a:hover {
-  background-color: #4192ca;
+  background-color: #005db9;
   border-radius: 6px;
   padding: 6px 24px;
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -34,7 +52,7 @@
   display: table;
   margin: 12px auto;
   text-decoration: none;
-  background-color: #2f77a9;
+  background-color: #004386;
 }
 /* Clears */
 .msd-clearfix {

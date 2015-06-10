@@ -76,10 +76,6 @@ function msdlab_pre_header(){
     </div>';
 }
 
-register_nav_menus( array(
-    'tab_menu' => 'TabNav Menu'
-) );
-
 function msdlab_pre_header_sidebar(){
     print '<div class="widget-area">';
     dynamic_sidebar( 'pre-header' );
@@ -196,8 +192,8 @@ function msdlab_add_extra_theme_sidebars(){
     //* Remove the header right widget area
     //unregister_sidebar( 'header-right' );
     genesis_register_sidebar(array(
-    'name' => 'Pre-header Sidebar',
-    'description' => 'Widget above the logo/nav header',
+    'name' => 'Post-header Sidebar',
+    'description' => 'Widget below the logo, above the primary navigation.',
     'id' => 'pre-header'
             ));
     genesis_register_sidebar(array(

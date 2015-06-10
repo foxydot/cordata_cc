@@ -153,18 +153,21 @@ Site Navigation
 --------------------------------------------- */
 
 .nav-primary {
-  display: inline-block;
-  float: right;
-  .customheader(1.4);
+  border-top: 4px solid fade(@blue,10%);
+  border-bottom: 4px solid fade(@blue,10%);
+  .background-gradient;
   li.menu-item{
     padding: 0;
+    max-width: 16%;
     a{
-      padding: 4.4rem 1rem 1rem;
+      .customheader(2.2);
+      padding: 1rem 3rem;
+      color: @blue;
+      line-height: 1;
     }
     .sub-menu{
       background-color: @white;
       margin-top: 0px;
-      .box-shadow(0 10px 10px rgba(20,20,20,0.5));
       li.menu-item{
         background-color: @white;
         padding: 0 2rem;
@@ -211,10 +214,9 @@ Site Navigation
       width:auto;
       position: relative;
       >a{
-        .custombody(1.4);
+        .custombody(1.8);
         padding: 0.5rem 1rem;
         color: @ltgrey;
-        text-transform: uppercase;
       }
       >a:hover{
         color:@blue;

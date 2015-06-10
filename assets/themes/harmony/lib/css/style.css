@@ -1,11 +1,11 @@
 @charset "UTF-8";
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700);
 /*
 HTML5 Reset
 ---------------------------------------------------------------------------------------------------- */
 /* Baseline Normalize
   normalize.css v2.1.2 | MIT License | git.io/normalize
 --------------------------------------------- */
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700|Roboto);
 article,
 aside,
 details,
@@ -180,6 +180,42 @@ input[type="search"] {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+/* Float Clearing
+--------------------------------------------- 
+
+.archive-pagination:before,
+.clearfix:before,
+.entry:before,
+.entry-pagination:before,
+.footer-widgets:before,
+.nav-primary:before,
+.nav-secondary:before,
+.site-container:before,
+.site-footer:before,
+.site-header:before,
+.site-inner:before,
+.wrap:before {
+  content: " ";
+  display: table;
+}
+
+.archive-pagination:after,
+.clearfix:after,
+.entry:after,
+.entry-pagination:after,
+.footer-widgets:after,
+.nav-primary:after,
+.nav-secondary:after,
+.site-container:after,
+.site-footer:after,
+.site-header:after,
+.site-inner:after,
+.wrap:after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+*/
 /*!
  * Bootstrap v3.0.0
  *
@@ -5564,7 +5600,7 @@ td.visible-print {
 /* Font Stacks */
 .customsansserif,
 .customsanserif {
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -5575,14 +5611,32 @@ td.visible-print {
 }
 /* Colors */
 /* Neutrals */
+.background-gradient {
+  background: #ffffff;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f2f3f5));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #ffffff 0%, #f2f3f5 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@white', endColorstr='@offwhite', GradientType=0);
+  /* IE6-9 */
+}
 /* Arrows */
 /* Buttons */
 .button:hover,
 .button a:hover {
-  background-color: #4192ca;
+  background-color: #005db9;
   border-radius: 6px;
   padding: 6px 24px;
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -5594,7 +5648,7 @@ td.visible-print {
   display: table;
   margin: 12px auto;
   text-decoration: none;
-  background-color: #2f77a9;
+  background-color: #004386;
 }
 /* Clears */
 .msd-clearfix {
@@ -5615,8 +5669,8 @@ html {
 }
 body {
   background-color: #ffffff;
-  color: #545454;
-  font-family: "Raleway", "Helvetica Neue", "Trebuchet MS", Calibri, sans-serif;
+  color: #606062;
+  font-family: "Roboto", "Helvetica Neue", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -5637,11 +5691,11 @@ textarea:focus,
   transition: all 0.1s ease-in-out;
 }
 ::-moz-selection {
-  background-color: #545454;
+  background-color: #606062;
   color: #ffffff;
 }
 ::selection {
-  background-color: #545454;
+  background-color: #606062;
   color: #ffffff;
 }
 a {
@@ -5653,7 +5707,7 @@ a img {
   margin-bottom: -0.4rem;
 }
 a:hover {
-  color: #545454;
+  color: #606062;
 }
 a:focus {
   outline: 0;
@@ -5681,7 +5735,7 @@ blockquote {
   border: none;
 }
 blockquote p {
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -5698,7 +5752,7 @@ blockquote::before {
   top: -10px;
 }
 .entry-content code {
-  background-color: #545454;
+  background-color: #606062;
   color: #c8c8c8;
 }
 cite {
@@ -5715,7 +5769,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -5770,7 +5824,7 @@ select,
 textarea {
   background-color: #ffffff;
   border: 1px solid #7f7f7f;
-  color: #545454;
+  color: #606062;
   font-size: 14px;
   font-size: 1.4rem;
   padding: 16px;
@@ -5795,10 +5849,10 @@ input[type="reset"],
 input[type="submit"],
 .button,
 .entry-content .button {
-  background-color: #4192ca;
+  background-color: #005db9;
   border-radius: 6px;
   padding: 6px 24px;
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -5822,10 +5876,10 @@ input:hover[type="reset"],
 input:hover[type="submit"],
 .button:hover,
 .entry-content .button:hover {
-  background-color: #4192ca;
+  background-color: #005db9;
   border-radius: 6px;
   padding: 6px 24px;
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -5837,7 +5891,7 @@ input:hover[type="submit"],
   display: table;
   margin: 12px auto;
   text-decoration: none;
-  background-color: #2f77a9;
+  background-color: #004386;
 }
 .entry-content .button:hover {
   color: #ffffff;
@@ -6015,7 +6069,7 @@ img.alignright,
   margin-bottom: 0;
   font-size: 1.2rem;
   background: none;
-  color: #4192ca;
+  color: #005db9;
 }
 .archive-description,
 .author-box {
@@ -6032,12 +6086,12 @@ img.alignright,
   padding: 4rem;
 }
 .author-box-title {
-  font-family: "Raleway", "Helvetica Neue", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.625;
-  color: #545454;
+  color: #606062;
   margin-bottom: 4px;
   margin-bottom: 0.4rem;
 }
@@ -6062,7 +6116,7 @@ img.alignright,
 .section-title a,
 .entry-title a,
 .sidebar .widget-title a {
-  color: #545454;
+  color: #606062;
 }
 .section-title a:hover,
 .entry-title a:hover {
@@ -6102,7 +6156,7 @@ Widgets
   padding: 0.4rem 0;
   font-weight: normal;
   margin-bottom: 0;
-  color: #4192ca;
+  color: #005db9;
 }
 /* Featured Content
 --------------------------------------------- */
@@ -6161,7 +6215,7 @@ Plugins
 }
 .enews-widget input:hover[type="submit"] {
   background-color: #ffffff;
-  color: #545454;
+  color: #606062;
 }
 /* Genesis Latest Tweets
 --------------------------------------------- */
@@ -6214,18 +6268,14 @@ img#wpstats {
 /*
 Site Header
 ---------------------------------------------------------------------------------------------------- */
-.site-header {
-  background-color: #f2f3f5;
-}
 .site-header .wrap {
-  padding: 40px 0;
-  padding: 4rem 0;
+  position: relative;
 }
 /* Title Area
 --------------------------------------------- */
 .title-area {
   float: left;
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -6233,7 +6283,7 @@ Site Header
   font-weight: 700;
   padding: 16px 0;
   padding: 1.6rem 0;
-  width: 300px;
+  width: 400px;
 }
 .header-image .title-area {
   padding: 0;
@@ -6274,13 +6324,11 @@ Site Header
 }
 .header-image .site-title a {
   float: left;
-  min-height: 70px;
-  width: 292px;
-  height: 70px;
+  min-height: 100px;
+  width: 400px;
+  height: 100px;
   background: url(../img/logo.png) no-repeat center left;
   background-size: contain;
-  margin: 10px 0;
-  margin: 1rem 0;
 }
 /* Widget Area
 --------------------------------------------- */
@@ -6351,38 +6399,29 @@ Site Header
 .site-header .widget-area .search-form input[type="search"],
 .pre-header .widget-area .search-form input[type="search"] {
   font-size: 1.4rem;
-  width: 0;
+  width: 20rem;
   background: transparent;
   padding: 0.6rem 2.4rem 0.6rem 1rem;
-  border: 0;
-  border-right: 1px solid #f2f3f5;
-  border-radius: 0;
+  border: 1px solid #71308a;
+  border-radius: 1.6em 0 0 1.6em;
   line-height: 1;
-  -webkit-transition: width 0.5s linear;
-  -moz-transition: width 0.5s linear;
-  -ms-transition: width 0.5s linear;
-  -o-transition: width 0.5s linear;
-  transition: width 0.5s linear;
 }
 .site-header .widget-area .search-form input[type="submit"],
 .pre-header .widget-area .search-form input[type="submit"] {
   font-family: FontAwesome;
-  background: transparent;
+  background: #71308a;
   border: 0 none;
   clip: auto;
-  color: #959595;
+  color: #ffffff;
   display: inline-block;
   font-size: 1.2rem;
-  height: 18px;
+  height: 28px;
   line-height: 1;
   text-align: center;
-  width: 18px;
-  right: 0.5rem;
-  top: 0.4rem;
-}
-.site-header .widget-area .search-form:hover input[type="search"],
-.pre-header .widget-area .search-form:hover input[type="search"] {
-  width: 25rem;
+  width: 28px;
+  right: 1px;
+  top: 1px;
+  border-radius: 0;
 }
 .header-image .site-header .widget-area {
   padding: 0;
@@ -6400,7 +6439,7 @@ Site Navigation
 .genesis-nav-menu {
   clear: both;
   color: #7f7f7f;
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -6424,11 +6463,11 @@ Site Navigation
 }
 .genesis-nav-menu .menu-item a:hover,
 .genesis-nav-menu .separator a:hover {
-  color: #545454;
+  color: #606062;
   text-decoration: none;
 }
 .genesis-nav-menu .current-menu-item > a {
-  color: #4192ca;
+  color: #005db9;
 }
 .genesis-nav-menu .sub-menu {
   left: -9999px;
@@ -6506,10 +6545,10 @@ Site Navigation
   width: auto;
   position: relative;
   border-radius: 0 0 0.4rem 0.4rem;
-  background-color: #4192ca;
+  background-color: #005db9;
 }
 .tab-menu .genesis-nav-menu .menu-item a {
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 14px;
   font-size: 1.4rem;
@@ -6530,28 +6569,42 @@ Site Navigation
 /* Primary Navigation
 --------------------------------------------- */
 .nav-primary {
-  display: inline-block;
-  float: right;
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  font-size: 1.4rem;
-  line-height: 1.625;
+  border-top: 4px solid rgba(0, 93, 185, 0.1);
+  border-bottom: 4px solid rgba(0, 93, 185, 0.1);
+  background: #ffffff;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f2f3f5));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #ffffff 0%, #f2f3f5 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@white', endColorstr='@offwhite', GradientType=0);
+  /* IE6-9 */
 }
 .nav-primary li.menu-item {
   padding: 0;
+  max-width: 16%;
 }
 .nav-primary li.menu-item a {
-  padding: 4.4rem 1rem 1rem;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  font-size: 2.2rem;
+  line-height: 1.625;
+  padding: 1rem 3rem;
+  color: #005db9;
+  line-height: 1;
 }
 .nav-primary li.menu-item .sub-menu {
   background-color: #ffffff;
   margin-top: 0px;
-  -webkit-box-shadow: 0 10px 10px rgba(20, 20, 20, 0.5);
-  box-shadow: 0 10px 10px rgba(20, 20, 20, 0.5);
-  -webkit-box-shadow: 0px 10px 10px rgba(20, 20, 20, 0.5);
-  -moz-box-shadow: 0px 10px 10px rgba(20, 20, 20, 0.5);
-  box-shadow: 0px 10px 10px rgba(20, 20, 20, 0.5);
 }
 .nav-primary li.menu-item .sub-menu li.menu-item {
   background-color: #ffffff;
@@ -6561,7 +6614,7 @@ Site Navigation
 .nav-primary li.menu-item .sub-menu li.menu-item a {
   background-color: transparent;
   border: 0;
-  color: #245b81;
+  color: #002a53;
   padding: 1rem 0;
   width: 100%;
 }
@@ -6573,7 +6626,7 @@ Site Navigation
   text-decoration: none;
 }
 .nav-primary li.separator {
-  color: #4192ca;
+  color: #005db9;
 }
 .nav-primary li:hover a,
 .nav-primary li.current-menu-item a,
@@ -6596,17 +6649,16 @@ Site Navigation
   position: relative;
 }
 .nav-secondary .wrap li.menu-item > a {
-  font-family: "Raleway", "Helvetica Neue", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
-  font-size: 14px;
-  font-size: 1.4rem;
+  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 1.625;
   padding: 0.5rem 1rem;
   color: #959595;
-  text-transform: uppercase;
 }
 .nav-secondary .wrap li.menu-item > a:hover {
-  color: #4192ca;
+  color: #005db9;
 }
 .nav-secondary .wrap li.menu-item ul {
   display: none;
@@ -6623,7 +6675,7 @@ Site Navigation
 }
 .nav-secondary .wrap li.menu-item ul li a {
   border: 0;
-  color: #545454;
+  color: #606062;
   width: auto;
   padding: 0 0 0 20px;
   background-position: left center;
@@ -6667,7 +6719,7 @@ Site Navigation
 }
 .nav-footer li.menu-item ul li a {
   border: 0;
-  color: #545454;
+  color: #606062;
   width: auto;
   padding: 0 0 0 20px;
   background-position: left center;
@@ -6737,7 +6789,7 @@ article.entry {
   margin-bottom: 4rem;
 }
 .entry-content h3 {
-  color: #4192ca;
+  color: #005db9;
   text-transform: uppercase;
   border-bottom: 1px dotted #7f7f7f;
 }
@@ -6799,7 +6851,7 @@ article.entry {
   display: block;
 }
 .entry-header .entry-title {
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 40px;
   font-size: 4rem;
@@ -6810,13 +6862,13 @@ article.entry {
   margin: 0;
 }
 .entry-header .entry-subtitle {
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 32px;
   font-size: 3.2rem;
   line-height: 1.625;
   font-weight: 300;
-  color: #4192ca;
+  color: #005db9;
   line-height: 1.25;
 }
 /* Pagination
@@ -7001,7 +7053,7 @@ Sidebars
   border-radius: 0px;
 }
 .sidebar .widget .widget-title {
-  font-family: "Raleway", "Helvetica Neue", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 24px;
   font-size: 2.4rem;
@@ -7015,10 +7067,10 @@ Sidebars
   /*Text Widget with Click */
 }
 .sidebar .widget_text .textwidget .readmore {
-  background-color: #4192ca;
+  background-color: #005db9;
   border-radius: 6px;
   padding: 6px 24px;
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -7044,27 +7096,27 @@ Sidebars
   text-align: center;
 }
 .sidebar .widget_sp_image .link a {
-  color: #545454;
+  color: #606062;
   border: 0;
 }
 .sidebar .widget_sp_image .link a i {
-  color: #ff9900;
+  color: #fb9816;
 }
 .sidebar span.fa-stack {
-  color: #4192ca;
+  color: #005db9;
 }
 /*
 Footer Widgets
 ---------------------------------------------------------------------------------------------------- */
 .footer-widgets {
   position: relative;
-  border-top: 8px solid #4192ca;
+  border-top: 8px solid #005db9;
   background-color: #f2f3f5;
   background-image: url(../img/demo-bkg.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  color: #545454;
+  color: #606062;
   clear: both;
   padding: 0;
 }
@@ -7077,13 +7129,13 @@ Footer Widgets
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-color: rgba(65, 146, 202, 0);
-  border-bottom-color: #4192ca;
+  border-color: rgba(0, 93, 185, 0);
+  border-bottom-color: #005db9;
   border-width: 20px 40px;
   margin-left: -40px;
 }
 .footer-widgets a {
-  color: #545454;
+  color: #606062;
 }
 .footer-widgets a:hover {
   color: #7f7f7f;
@@ -7131,10 +7183,10 @@ Footer Widgets
 .footer-widgets .connected-form input[type="submit"],
 .footer-widgets .connected-form input[type="button"],
 .footer-widgets .connected-form a.button {
-  background-color: #4192ca;
+  background-color: #005db9;
   border-radius: 6px;
   padding: 6px 24px;
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 16px;
   font-size: 1.6rem;
@@ -7171,7 +7223,7 @@ Footer Widgets
 }
 .footer-widgets .connected-social .social-media a.fa {
   background: none;
-  border: 1px solid #ffffff;
+  border: 1px solid #b9dcff;
   border-radius: 100%;
   margin: 10px;
   height: 50px;
@@ -7183,7 +7235,7 @@ Footer Widgets
   margin-right: 0;
 }
 .footer-widgets .connected-social .social-media a.fa:hover {
-  border-color: #2f77a9;
+  border-color: #004386;
 }
 .footer-widgets .connected-social .social-media a.fa-facebook:hover {
   background-color: #345aa1;
@@ -7237,9 +7289,9 @@ Footer Widgets
 Site Footer
 ---------------------------------------------------------------------------------------------------- */
 .site-footer {
-  background-color: #4192ca;
-  color: #ffffff;
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  border-top: 1px solid #005db9;
+  color: #005db9;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 10px;
   font-size: 1rem;
@@ -7269,7 +7321,7 @@ Site Footer
   display: none;
 }
 .sectioned-page-wrapper {
-  box-shadow: 0 0 12px 0 #545454;
+  box-shadow: 0 0 12px 0 #606062;
   position: relative;
   z-index: 10;
 }
@@ -7280,13 +7332,13 @@ Site Footer
 }
 .sectioned-page-wrapper .section .section-subtitle,
 .sectioned-page-wrapper .section h4 {
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 18px;
   font-size: 1.8rem;
   line-height: 1.625;
   font-weight: 500;
-  color: #4192ca;
+  color: #005db9;
   line-height: 1.25;
   margin: 0;
 }
@@ -7294,7 +7346,7 @@ Site Footer
   margin-bottom: 2rem;
 }
 .sectioned-page-wrapper .section h3 {
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 18px;
   font-size: 1.8rem;
@@ -7305,14 +7357,14 @@ Site Footer
   margin-bottom: 0.5em;
 }
 .sectioned-page-wrapper .section .section-title h3 {
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 24px;
   font-size: 2.4rem;
   line-height: 1.625;
   text-align: center;
   text-transform: uppercase;
-  color: #545454;
+  color: #606062;
   padding-top: 2rem;
   margin-bottom: 0;
 }
@@ -7330,7 +7382,7 @@ Site Footer
   background-color: #f2f3f5;
 }
 .sectioned-page-wrapper .section.bkg-blue {
-  background-color: #4192ca;
+  background-color: #005db9;
   color: #ffffff;
 }
 .sectioned-page-wrapper .section.bkg-blue .section-title h3 {
@@ -7367,8 +7419,8 @@ Site Footer
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-color: rgba(65, 146, 202, 0);
-  border-top-color: #4192ca;
+  border-color: rgba(0, 93, 185, 0);
+  border-top-color: #005db9;
   border-width: 20px 40px;
   margin-left: -40px;
   z-index: 300;
@@ -7394,7 +7446,7 @@ Site Footer
   padding-bottom: 2rem;
 }
 .sectioned-page-wrapper .section.title-bar.title-bar-blue .section-title {
-  background-color: #4192ca;
+  background-color: #005db9;
 }
 .sectioned-page-wrapper .section.title-bar.title-bar-blue .section-title h3 {
   color: #ffffff;
@@ -7410,8 +7462,8 @@ Site Footer
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-color: rgba(65, 146, 202, 0);
-  border-top-color: #4192ca;
+  border-color: rgba(0, 93, 185, 0);
+  border-top-color: #005db9;
   border-width: 20px 40px;
   margin-left: -40px;
   z-index: 300;
@@ -7471,7 +7523,7 @@ Site Footer
 }
 .sectioned-page-wrapper .section.summary .section-body .more-wrap .expand i {
   display: inline-block;
-  background: #4192ca;
+  background: #005db9;
   color: #ffffff;
   text-align: center;
   height: 20px;
@@ -7522,70 +7574,20 @@ Site Footer
 .pre-header:after {
   clear: both;
 }
-.pre-header .connected-social .social-media {
-  float: right;
+.connected-social .social-media {
+  top: 60px;
 }
-.pre-header .connected-social .social-media a.fa {
-  background: none;
-  color: #959595;
-  height: auto;
-  line-height: inherit;
+.connected-social .social-media a.fa {
+  line-height: 2;
+  border-radius: 50%;
+  margin: 0 0.5rem;
 }
-.pre-header .connected-social .social-media a.fa:hover {
-  line-height: inherit;
-  height: auto;
-}
-.pre-header .connected-social .social-media a.fa.last-child {
+.connected-social .social-media a.fa.last-child {
   margin-right: 0;
-}
-.pre-header .connected-social .social-media a.fa-facebook:hover {
-  color: #345aa1;
-}
-.pre-header .connected-social .social-media a.fa-twitter:hover {
-  color: #348db9;
-}
-.pre-header .connected-social .social-media a.fa-pinterest:hover {
-  color: #ec1a22;
-}
-.pre-header .connected-social .social-media a.fa-google-plus:hover {
-  color: #000000;
-}
-.pre-header .connected-social .social-media a.fa-linkedin:hover {
-  color: #66b5d3;
-}
-.pre-header .connected-social .social-media a.fa-instagram:hover {
-  color: #ec1a22;
-}
-.pre-header .connected-social .social-media a.fa-tumblr:hover {
-  color: #3e5a70;
-}
-.pre-header .connected-social .social-media a.fa-reddit:hover {
-  color: #ff4400;
-}
-.pre-header .connected-social .social-media a.fa-flickr:hover {
-  color: #0062dd;
-}
-.pre-header .connected-social .social-media a.fa-youtube:hover {
-  color: #cc181e;
-}
-.pre-header .connected-social .social-media a.fa-vimeo-square:hover {
-  color: #232021;
-}
-.pre-header .connected-social .social-media a.fa-vine:hover {
-  color: #00be8f;
-}
-.pre-header .connected-social .social-media a.fa-share-alt:hover {
-  color: #00bf00;
-}
-.pre-header .connected-social .social-media a.fa-envelope:hover {
-  color: #999999;
-}
-.pre-header .connected-social .social-media a.fa-rss:hover {
-  color: #f37d2a;
 }
 .page-title-area {
   position: relative;
-  background-color: #4192ca;
+  background-color: #005db9;
 }
 .page-title-area:after {
   left: 50%;
@@ -7595,14 +7597,14 @@ Site Footer
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-color: rgba(65, 146, 202, 0);
-  border-top-color: #4192ca;
+  border-color: rgba(0, 93, 185, 0);
+  border-top-color: #005db9;
   border-width: 20px 40px;
   margin-left: -40px;
   z-index: 300;
 }
 .page-title-area .entry-title {
-  font-family: "Raleway", "Trebuchet MS", Calibri, sans-serif;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 36px;
   font-size: 3.6rem;
@@ -7627,15 +7629,15 @@ Site Footer
 .site-footer .wrap .backtotop {
   position: absolute;
   right: 0;
-  top: -2px;
-  background-color: #ffffff;
+  top: -1px;
+  background-color: #005db9;
   border-radius: 0 0 20% 20%;
   height: 2.4rem;
   width: 2.4rem;
   text-align: center;
 }
 .site-footer .wrap .backtotop a {
-  color: #4192ca;
+  color: #ffffff;
   font-size: 2em;
   line-height: 1;
 }
@@ -7699,7 +7701,7 @@ Site Footer
     display: inline-block;
     width: 100%;
     text-indent: 20px;
-    background: #4192ca;
+    background: #005db9;
     min-height: 46px;
     padding-top: 14px;
     position: relative;
@@ -7720,7 +7722,7 @@ Site Footer
     padding: 0;
   }
   .nav-responsive a#pull ul#mobile_menu li a {
-    background: #4192ca;
+    background: #005db9;
     color: #ffffff;
     display: block;
     width: 100%;
@@ -7732,7 +7734,7 @@ Site Footer
     right: 15px;
   }
   .nav-responsive a#pull ul#mobile_menu li a:hover {
-    background: #69a9d5;
+    background: #0077ec;
   }
   .nav-responsive a#pull ul#mobile_menu li .toggle-switch {
     margin-right: 12px;
@@ -7762,7 +7764,7 @@ Site Footer
     display: none;
   }
   .nav-responsive a#pull ul#mobile_menu li.current-menu-item a {
-    background: #7db4db;
+    background: #0683ff;
   }
   .nav-responsive a#pull:hover {
     text-decoration: none;
@@ -7772,7 +7774,7 @@ Site Footer
     font-family: 'FontAwesome';
     font-size: 2.2rem;
     text-indent: 0;
-    color: #4192ca;
+    color: #005db9;
     text-align: center;
     width: 30px;
     height: 30px;
