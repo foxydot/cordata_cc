@@ -2,46 +2,6 @@
 Plugins
 ---------------------------------------------------------------------------------------------------- */
 
-/* Genesis eNews Extended
---------------------------------------------- */
-
-.enews-widget {
-  color: #999;
-}
-
-.enews-widget .widget-title {
-  color: @white;
-}
-
-.enews-widget input {
-  margin-bottom: 16px;
-  margin-bottom: 1.6rem;
-}
-
-.enews-widget input:focus {
-  border: 1px solid #ddd;
-}
-
-.enews-widget input[type="submit"] {
-  background-color: #f15123;
-  color: @white;
-  margin: 0;
-  width: 100%;
-}
-
-.enews-widget input:hover[type="submit"] {
-  background-color: @white;
-  color: @dkgrey;
-}
-
-/* Genesis Latest Tweets
---------------------------------------------- */
-
-.latest-tweets ul li {
-  margin-bottom: 16px;
-  margin-bottom: 1.6rem;
-}
-
 /* Gravity Forms
 --------------------------------------------- */
 
@@ -72,4 +32,30 @@ div.gform_wrapper .gform_footer input[type="submit"] {
 
 img#wpstats {
   display: none;
+}
+
+
+  /*Text Widget with Click */
+.widget_text{
+  .textwidget{
+      .readmore{
+        .button();
+        float: right;
+      }
+  }
+   a {border: none;}
+}
+.widget_sp_image{
+  .link{
+    a{
+      color: @dkgrey;
+      border: 0;
+      i{
+        color: @orange;
+      }
+    }
+  }
+}
+span.fa-stack{
+  color: @blue;
 }

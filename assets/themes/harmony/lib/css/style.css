@@ -6199,37 +6199,6 @@ section.layerslider_widget {
 /*
 Plugins
 ---------------------------------------------------------------------------------------------------- */
-/* Genesis eNews Extended
---------------------------------------------- */
-.enews-widget {
-  color: #999;
-}
-.enews-widget .widget-title {
-  color: #ffffff;
-}
-.enews-widget input {
-  margin-bottom: 16px;
-  margin-bottom: 1.6rem;
-}
-.enews-widget input:focus {
-  border: 1px solid #ddd;
-}
-.enews-widget input[type="submit"] {
-  background-color: #f15123;
-  color: #ffffff;
-  margin: 0;
-  width: 100%;
-}
-.enews-widget input:hover[type="submit"] {
-  background-color: #ffffff;
-  color: #606062;
-}
-/* Genesis Latest Tweets
---------------------------------------------- */
-.latest-tweets ul li {
-  margin-bottom: 16px;
-  margin-bottom: 1.6rem;
-}
 /* Gravity Forms
 --------------------------------------------- */
 div.gform_wrapper input[type="email"],
@@ -6255,6 +6224,43 @@ div.gform_wrapper .gform_footer input[type="submit"] {
 --------------------------------------------- */
 img#wpstats {
   display: none;
+}
+/*Text Widget with Click */
+.widget_text .textwidget .readmore {
+  background-color: #005db9;
+  border-radius: 6px;
+  padding: 6px 24px;
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.625;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+  display: table;
+  margin: 12px auto;
+  text-decoration: none;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  float: right;
+}
+.widget_text a {
+  border: none;
+}
+.widget_sp_image .link a {
+  color: #606062;
+  border: 0;
+}
+.widget_sp_image .link a i {
+  color: #fb9816;
+}
+span.fa-stack {
+  color: #005db9;
 }
 /* Pre Header */
 .pre-header {
@@ -7078,51 +7084,6 @@ Sidebars
   font-size: 2.4rem;
   line-height: 1.625;
   color: #7f7f7f;
-}
-.sidebar .enews-widget {
-  background-color: #333;
-}
-.sidebar {
-  /*Text Widget with Click */
-}
-.sidebar .widget_text .textwidget .readmore {
-  background-color: #005db9;
-  border-radius: 6px;
-  padding: 6px 24px;
-  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  font-size: 1.6rem;
-  line-height: 1.625;
-  color: #FFFFFF;
-  font-size: 12px;
-  font-weight: normal;
-  text-transform: uppercase;
-  display: table;
-  margin: 12px auto;
-  text-decoration: none;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -ms-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
-  float: right;
-}
-.sidebar .widget_text a {
-  border: none;
-}
-.sidebar .widget_sp_image {
-  text-align: center;
-}
-.sidebar .widget_sp_image .link a {
-  color: #606062;
-  border: 0;
-}
-.sidebar .widget_sp_image .link a i {
-  color: #fb9816;
-}
-.sidebar span.fa-stack {
-  color: #005db9;
 }
 /*
 Footer Widgets
