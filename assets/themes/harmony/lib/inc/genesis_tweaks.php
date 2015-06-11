@@ -64,7 +64,7 @@ add_action( 'genesis_after_endwhile', 'msdlab_prev_next_post_nav' );
 /*** FOOTER ***/
 add_theme_support( 'genesis-footer-widgets', 1 ); //adds automatic footer widgets
 
-add_action('genesis_before_footer','msdlab_do_footer_widget', 1);
+add_action('genesis_after_loop','msdlab_do_footer_widget', 1);
 
 remove_action('genesis_footer','genesis_do_footer'); //replace the footer
 add_action('genesis_footer','msdlab_do_social_footer');//with a msdsocial support one

@@ -45,7 +45,9 @@ class MSDBootstrapShortcodes{
         ), $atts );
         preg_match('/\d+/i',$shortcode_name, $matches);
         $count = $matches[0];
-        return '<div class="col-md-'.$count.' col-sm-'.$atts['sm'].' '.$classes.'">'.apply_filters('the_content',$content).'</div>';
+        $content = do_shortcode($content);
+        $ret = '<div class="col-md-'.$count.' col-sm-'.$atts['sm'].' '.$classes.'">'.$content.'</div>';
+        return $ret;
     }
 
     function wrap_up_columns($content){

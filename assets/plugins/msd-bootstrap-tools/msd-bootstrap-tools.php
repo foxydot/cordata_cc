@@ -3,7 +3,7 @@
 Plugin Name: MSD  Bootstrap Tools
 Description: Some bootstrap tools
 Author: MSDLAB
-Version: 0.1.3
+Version: 0.1.5
 Author URI: http://msdlab.com
 */
 
