@@ -19,7 +19,7 @@ add_theme_support( 'genesis-structural-wraps', array(
 /*** HEADER ***/
 add_action('wp_head','msdlab_add_apple_touch_icons');
 add_action('wp_head','msdlab_maybe_wrap_inner');
-add_action('wp_head','msdlab_make_it_homepage');
+//add_action('wp_head','msdlab_make_it_homepage');
 add_filter( 'genesis_search_text', 'msdlab_search_text' ); //customizes the serach bar placeholder
 add_filter('genesis_search_button_text', 'msdlab_search_button'); //customize the search form to add fontawesome search button.
 add_action('genesis_after_header','msdlab_pre_header',4);
