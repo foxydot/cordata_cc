@@ -90,20 +90,29 @@ article.entry {
 
 .entry-header{
   .entry-title{
-    .background-gradient;
-    border-bottom: 4px solid @blue;
-    padding: 1rem;
-    font-size: 24px;
-    font-size: 2.4rem;
-    line-height: 1;
-  }
-  .entry-subtitle{
     .customheader(3.2);
     font-weight: 300;
     color: @blue;
     line-height: 1.25;
+    a{
+      color: @blue;
+      &:hover{
+        text-decoration: none;
+        color: darken(@blue,10%);
+      }
+    }
   }
 }
+
+  .entry-subtitle{
+    .customheader(2.4);
+    color: @medgrey;
+    border-bottom: 4px solid @blue;
+    padding: 1rem 0;
+    font-size: 24px;
+    font-size: 2.4rem;
+    line-height: 1;
+  }
 
 /* Pagination
 --------------------------------------------- */

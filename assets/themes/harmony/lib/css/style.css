@@ -6113,9 +6113,6 @@ img.alignright,
 .entry-title a:hover {
   color: #7f7f7f;
 }
-.sidebar .widget-title a {
-  border: none;
-}
 .archive-title {
   font-size: 20px;
   font-size: 2rem;
@@ -6143,24 +6140,12 @@ Widgets
   list-style: none inside none;
 }
 .widget .widget-title {
-  background: #ffffff;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f2f3f5));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #ffffff 0%, #f2f3f5 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@white', endColorstr='@offwhite', GradientType=0);
-  /* IE6-9 */
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  line-height: 1.625;
+  color: #7f7f7f;
   border-bottom: 4px solid #005db9;
-  padding: 1rem;
+  padding: 1rem 0;
   font-size: 24px;
   font-size: 2.4rem;
   line-height: 1;
@@ -6261,6 +6246,13 @@ img#wpstats {
 }
 span.fa-stack {
   color: #005db9;
+}
+.widget_wpt .wpt_widget_content .tab_title a {
+  background-color: #005db9;
+  color: #ffffff;
+}
+.widget_wpt .wpt_widget_content .tab_title.selected a {
+  color: #7f7f7f;
 }
 /* Pre Header */
 .pre-header {
@@ -6864,29 +6856,6 @@ article.entry {
   display: block;
 }
 .entry-header .entry-title {
-  background: #ffffff;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f2f3f5));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #ffffff 0%, #f2f3f5 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #ffffff 0%, #f2f3f5 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@white', endColorstr='@offwhite', GradientType=0);
-  /* IE6-9 */
-  border-bottom: 4px solid #005db9;
-  padding: 1rem;
-  font-size: 24px;
-  font-size: 2.4rem;
-  line-height: 1;
-}
-.entry-header .entry-subtitle {
   font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
   font-weight: 400;
   font-size: 32px;
@@ -6895,6 +6864,24 @@ article.entry {
   font-weight: 300;
   color: #005db9;
   line-height: 1.25;
+}
+.entry-header .entry-title a {
+  color: #005db9;
+}
+.entry-header .entry-title a:hover {
+  text-decoration: none;
+  color: #004386;
+}
+.entry-subtitle {
+  font-family: "Roboto Condensed", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  line-height: 1.625;
+  color: #7f7f7f;
+  border-bottom: 4px solid #005db9;
+  padding: 1rem 0;
+  font-size: 24px;
+  font-size: 2.4rem;
+  line-height: 1;
 }
 /* Pagination
 --------------------------------------------- */
@@ -7076,14 +7063,6 @@ Sidebars
 }
 .sidebar .widget {
   border-radius: 0px;
-}
-.sidebar .widget .widget-title {
-  font-family: "Roboto", "Helvetica Neue", "Trebuchet MS", Calibri, sans-serif;
-  font-weight: 400;
-  font-size: 24px;
-  font-size: 2.4rem;
-  line-height: 1.625;
-  color: #7f7f7f;
 }
 /*
 Footer Widgets

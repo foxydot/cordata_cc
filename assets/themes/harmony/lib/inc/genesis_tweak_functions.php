@@ -157,6 +157,12 @@ function msdlab_get_thumbnail_url($post_id = null, $size = 'post-thumbnail'){
     return $url;
 }
 
+function msdlab_do_category_header(){
+    if(is_category()){
+        print '<h2 class="entry-subtitle">'.single_cat_title( '', false ).'</h2>';
+    }
+}
+
 function msdlab_page_banner(){
     if(is_front_page())
         return;
@@ -544,7 +550,7 @@ class Description_Walker extends Walker_Nav_Menu
 function msdlab_do_social_footer(){
     global $msd_social;
     global $wp_filter;
-    //ts_var( $wp_filter['msdlab_title_area'] );
+    //ts_var( $wp_filter['genesis_entry_header'] );
     
     if(has_nav_menu('footer_menu')){$footer_menu .= wp_nav_menu( array( 'theme_location' => 'footer_menu','container_class' => 'menu genesis-nav-menu nav-footer','echo' => FALSE ) );}
     
