@@ -297,7 +297,7 @@ function msdlab_breadcrumb_args($args) {
     return $args;
 }
 function msdlab_post_info_filter($post_info) {
-    $post_info = '[post_author_thumbnail] By [post_author_posts_link], [post_author_title]<br />
+    $post_info = '[post_author_thumbnail] By [post_author_posts_link][post_author_title]<br />
     Posted [post_date]';
     return $post_info;
 }

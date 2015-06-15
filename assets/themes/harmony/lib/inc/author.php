@@ -79,9 +79,9 @@ function msdlab_post_author_position($attr){
     $position   = $position ? sprintf( '<span class="author-position">%s</span>', strip_tags( $position ) ) : FALSE;
     $company    = $company ? sprintf( '<span class="author-company">%s</span>', strip_tags( $company ) ) : FALSE;
     if($position && $company){
-        $position   = sprintf( '<span class="author-job">%s, %s</span>', $position, $company );
+        $position   = sprintf( ', <span class="author-job">%s, %s</span>', $position, $company );
     } elseif ($position || $company){
-        $position   = sprintf( '<span class="author-job">%s%s</span>', $position, $company );
+        $position   = sprintf( ', <span class="author-job">%s%s</span>', $position, $company );
     } else {
         $position   = '';
     }
