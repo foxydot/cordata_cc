@@ -2,7 +2,7 @@
 /**
  * Add new image sizes
  */
-add_image_size('project-thumbnail', 370, 370, true);
+add_image_size('author', 150, 200, FALSE);
 add_image_size('tiny-post-thumb', 45, 45, TRUE);
 add_image_size('nav-post-thumb', 540, 300, true);
 add_image_size( 'post-image', 540, 150, TRUE ); //image to float at the top of the post. Reversed Out does these a lot.

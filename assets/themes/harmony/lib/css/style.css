@@ -7600,6 +7600,43 @@ Site Footer
   font-size: 2em;
   line-height: 1;
 }
+.author-name {
+  margin: 6em 0 0 0;
+}
+.author-job {
+  font-family: "Roboto", "Helvetica Neue", "Trebuchet MS", Calibri, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.625;
+}
+.author-bio-area {
+  clear: both;
+  margin-top: 1em;
+}
+.author-bio-area:before,
+.author-bio-area:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.author-bio-area:after {
+  clear: both;
+}
+.author-bio-area:before,
+.author-bio-area:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.author-bio-area:after {
+  clear: both;
+}
+.author-bio-area .author-bio-header {
+  margin: 0;
+}
 .nav-responsive ul,
 .nav-responsive li,
 .nav-responsive li a {

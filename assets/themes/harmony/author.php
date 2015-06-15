@@ -5,6 +5,8 @@ Template Name: Author Profile Page
 
 remove_action( 'genesis_before_loop', 'genesis_do_author_title_description', 15 );
 add_action( 'genesis_before_loop', 'msdlab_do_author_title_description', 15 );
+
+add_filter( 'msdlab_author_description_output', 'wpautop' );
 /**
  * Add custom headline and description to author archive pages.
  *
