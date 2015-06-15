@@ -161,6 +161,9 @@ function msdlab_do_category_header(){
     if(is_category()){
         print '<h2 class="entry-subtitle">'.single_cat_title( '', false ).'</h2>';
     }
+    if(is_author()){
+        print '<h2 class="entry-subtitle">Contributor Profile</h2>';
+    }
 }
 
 function msdlab_page_banner(){
@@ -293,8 +296,9 @@ function msdlab_breadcrumb_args($args) {
     $args['sep'] = ' > ';
     return $args;
 }
-function sp_post_info_filter($post_info) {
-    $post_info = 'Posted [post_date]';
+function msdlab_post_info_filter($post_info) {
+    $post_info = '[post_author_thumbnail] By [post_author_posts_link], [post_author_title]<br />
+    Posted [post_date]';
     return $post_info;
 }
 function sp_read_more_link() {
@@ -550,7 +554,7 @@ class Description_Walker extends Walker_Nav_Menu
 function msdlab_do_social_footer(){
     global $msd_social;
     global $wp_filter;
-    //ts_var( $wp_filter['genesis_entry_header'] );
+    //ts_var( $wp_filter['genesis_before_loop'] );
     
     if(has_nav_menu('footer_menu')){$footer_menu .= wp_nav_menu( array( 'theme_location' => 'footer_menu','container_class' => 'menu genesis-nav-menu nav-footer','echo' => FALSE ) );}
     
