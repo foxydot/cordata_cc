@@ -6181,6 +6181,9 @@ section.layerslider_widget {
   padding: 0;
   margin: 0;
 }
+.join-the-conversation {
+  margin-bottom: 2rem !important;
+}
 /*
 Plugins
 ---------------------------------------------------------------------------------------------------- */
