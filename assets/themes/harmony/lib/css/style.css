@@ -7643,6 +7643,27 @@ Site Footer
 }
 .entry-content ul.author-list li {
   list-style: none outside none;
+  clear: both;
+}
+.entry-content ul.author-list li:before,
+.entry-content ul.author-list li:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.entry-content ul.author-list li:after {
+  clear: both;
+}
+.entry-content ul.author-list li:before,
+.entry-content ul.author-list li:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.entry-content ul.author-list li:after {
+  clear: both;
 }
 .nav-responsive ul,
 .nav-responsive li,
