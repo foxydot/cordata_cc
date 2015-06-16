@@ -7637,6 +7637,13 @@ Site Footer
 .archive.author .author-bio-area .author-bio-header {
   margin: 0;
 }
+.entry-content ul.author-list {
+  margin-left: 0;
+  list-style: none outside none;
+}
+.entry-content ul.author-list li {
+  list-style: none outside none;
+}
 .nav-responsive ul,
 .nav-responsive li,
 .nav-responsive li a {

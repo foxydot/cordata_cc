@@ -63,9 +63,10 @@ function msdlab_do_author_title_description() {
 add_shortcode('post_author_thumbnail','msdlab_post_author_thumbnail');
 add_shortcode('post_author_position','msdlab_post_author_position');
 add_shortcode('post_author_title','msdlab_post_author_position');
+add_shortcode('list_authors','msdlab_list_post_authors');
 
 
-function msdlab_post_author_thumbnail($attr){
+function msdlab_post_author_thumbnail($atts){
     $avatar     = get_the_author_meta( 'profile_img', (int) get_query_var( 'author' ) );
     $avatar_id  = $avatar ? get_attachment_id_from_src($avatar) : FALSE;
     $image      = wp_get_attachment_image_src( $avatar_id, 'tiny-post-thumb' );
@@ -73,7 +74,8 @@ function msdlab_post_author_thumbnail($attr){
 
     return $avatar;
 }
-function msdlab_post_author_position($attr){
+
+function msdlab_post_author_position($atts){
     $position   = get_the_author_meta( 'position', (int) get_query_var( 'author' ) );
     $company    = get_the_author_meta( 'company', (int) get_query_var( 'author' ) );
     $position   = $position ? sprintf( '<span class="author-position">%s</span>', strip_tags( $position ) ) : FALSE;
@@ -86,4 +88,185 @@ function msdlab_post_author_position($attr){
         $position   = '';
     }
     return $position;
+}
+
+function msdlab_list_post_authors($atts){
+    $atts = shortcode_atts( array(
+        'exclude' => array(),
+    ), $atts );
+    $atts['exclude'] = array_merge($atts['exclude'],array('msd_lab','abby','cole'));
+    foreach($atts['exclude'] AS $name){
+        $user = get_user_by('login',$name);
+        $exclude_ids[] = $user->ID;
+    }
+    $exclude = implode(',',$exclude_ids);
+    $args = array(
+    'hide_empty'    => true,
+    'echo'          => false,
+    'style'         => 'list',
+    'exclude'       => $exclude
+    );
+    
+    return msdlab_list_authors($args);
+}
+
+
+/**
+ * List all the authors of the blog, with several options available.
+ *
+ * @link https://codex.wordpress.org/Template_Tags/wp_list_authors
+ *
+ * @since 1.2.0
+ *
+ * @param string|array $args {
+ *     Optional. Array or string of default arguments.
+ *
+ *     @type string $orderby       How to sort the authors. Accepts 'nicename', 'email', 'url', 'registered',
+ *                                 'user_nicename', 'user_email', 'user_url', 'user_registered', 'name',
+ *                                 'display_name', 'post_count', 'ID', 'meta_value', 'user_login'. Default 'name'.
+ *     @type string $order         Sorting direction for $orderby. Accepts 'ASC', 'DESC'. Default 'ASC'.
+ *     @type int    $number        Maximum authors to return or display. Default empty (all authors).
+ *     @type bool   $optioncount   Show the count in parenthesis next to the author's name. Default false.
+ *     @type bool   $exclude_admin Whether to exclude the 'admin' account, if it exists. Default false.
+ *     @type bool   $show_fullname Whether to show the author's full name. Default false.
+ *     @type bool   $hide_empty    Whether to hide any authors with no posts. Default true.
+ *     @type string $feed          If not empty, show a link to the author's feed and use this text as the alt
+ *                                 parameter of the link. Default empty.
+ *     @type string $feed_image    If not empty, show a link to the author's feed and use this image URL as
+ *                                 clickable anchor. Default empty.
+ *     @type string $feed_type     The feed type to link to, such as 'rss2'. Defaults to default feed type.
+ *     @type bool   $echo          Whether to output the result or instead return it. Default true.
+ *     @type string $style         If 'list', each author is wrapped in an `<li>` element, otherwise the authors
+ *                                 will be separated by commas.
+ *     @type bool   $html          Whether to list the items in HTML form or plaintext. Default true.
+ *     @type string $exclude       An array, comma-, or space-separated list of author IDs to exclude. Default empty.
+ *     @type string $exclude       An array, comma-, or space-separated list of author IDs to include. Default empty.
+ * }
+ * @return null|string The output, if echo is set to false. Otherwise null.
+ */
+function msdlab_list_authors( $args = '' ) {
+    global $wpdb;
+
+    $defaults = array(
+        'orderby' => 'name', 'order' => 'ASC', 'number' => '',
+        'optioncount' => false, 'exclude_admin' => true,
+        'show_fullname' => false, 'hide_empty' => true,
+        'feed' => '', 'feed_image' => '', 'feed_type' => '', 'echo' => true,
+        'style' => 'list', 'html' => true, 'exclude' => '', 'include' => '',
+        'avatar' => true, 'position' => true, 'company' => true, 'bio' => 'excerpt'
+    );
+
+    $args = wp_parse_args( $args, $defaults );
+
+    $return = '';
+
+    $query_args = wp_array_slice_assoc( $args, array( 'orderby', 'order', 'number', 'exclude', 'include' ) );
+    $query_args['fields'] = 'ids';
+    $authors = get_users( $query_args );
+
+    $author_count = array();
+    foreach ( (array) $wpdb->get_results( "SELECT DISTINCT post_author, COUNT(ID) AS count FROM $wpdb->posts WHERE " . get_private_posts_cap_sql( 'post' ) . " GROUP BY post_author" ) as $row ) {
+        $author_count[$row->post_author] = $row->count;
+    }
+    foreach ( $authors as $author_id ) {
+        $author     = get_userdata( $author_id );
+        $headline   = get_the_author_meta( 'headline', $author_id );
+        $url        = get_the_author_meta( 'url', $author_id );
+        $intro_text = get_the_author_meta( 'intro_text', $author_id );
+        $bio        = get_the_author_meta( 'description', $author_id );
+
+        if ( $args['exclude_admin'] && 'admin' == $author->display_name ) {
+            continue;
+        }
+
+        $posts = isset( $author_count[$author->ID] ) ? $author_count[$author->ID] : 0;
+
+        if ( ! $posts && $args['hide_empty'] ) {
+            continue;
+        }
+        
+        if ( $args['show_fullname'] && $author->first_name && $author->last_name ) {
+            $name = "$author->first_name $author->last_name";
+        } else {
+            $name = $author->display_name;
+        }
+
+        if ( ! $args['html'] ) {
+            $return .= $name . ', ';
+
+            continue; // No need to go further to process HTML.
+        }
+
+        if ( 'list' == $args['style'] ) {
+            $return .= '<li>';
+        }
+        
+        if ( $args['avatar'] ){
+            $avatar     = get_the_author_meta( 'profile_img', $author_id );
+            $avatar_id  = $avatar ? get_attachment_id_from_src($avatar) : FALSE;
+            $image      = wp_get_attachment_image_src( $avatar_id, 'tiny-post-thumb' );
+            $avatar     = $avatar_id ? '<img src="'.$image[0].'" class="alignleft pull-left" />' : '';
+            $return .= $avatar;
+        }
+        
+        $link = '<a href="' . get_author_posts_url( $author->ID, $author->user_nicename ) . '" title="' . esc_attr( sprintf(__("Posts by %s"), $author->display_name) ) . '">' . $name . '</a>';
+
+        if ( ! empty( $args['feed_image'] ) || ! empty( $args['feed'] ) ) {
+            $link .= ' ';
+            if ( empty( $args['feed_image'] ) ) {
+                $link .= '(';
+            }
+
+            $link .= '<a href="' . get_author_feed_link( $author->ID, $args['feed_type'] ) . '"';
+
+            $alt = '';
+            if ( ! empty( $args['feed'] ) ) {
+                $alt = ' alt="' . esc_attr( $args['feed'] ) . '"';
+                $name = $args['feed'];
+            }
+
+            $link .= '>';
+
+            if ( ! empty( $args['feed_image'] ) ) {
+                $link .= '<img src="' . esc_url( $args['feed_image'] ) . '" style="border: none;"' . $alt . ' />';
+            } else {
+                $link .= $name;
+            }
+
+            $link .= '</a>';
+
+            if ( empty( $args['feed_image'] ) ) {
+                $link .= ')';
+            }
+        }
+
+        if ( $args['optioncount'] ) {
+            $link .= ' ('. $posts . ')';
+        }
+
+        $return .= $link;
+        
+        if($args['position'] || $args['company']){
+            $position   = $args['position']?get_the_author_meta( 'position', $author_id ):false;
+            $company    = $args['company']?get_the_author_meta( 'company', $author_id ):false;
+            if($position && $company){
+                $return .= sprintf( '<div class="author-job">%s, %s</div>', $position, $company );
+            } elseif ($position || $company){
+                $return .= sprintf( '<div class="author-job">%s%s</div>', $position, $company );
+            }
+        }
+        
+        $return .= ( 'list' == $args['style'] ) ? '</li>' : ', ';
+    }
+
+    $return = rtrim( $return, ', ' );
+    
+    if ( 'list' == $args['style'] ) {
+            $return = sprintf('<ul class="author-list">%s</ul>', $return);
+        }
+
+    if ( ! $args['echo'] ) {
+        return $return;
+    }
+    echo $return;
 }
