@@ -30,7 +30,7 @@ function msd_post_image() {
         return; //duck out early, don't show on single posts.
     } elseif ( has_post_thumbnail() ){
         print '<section class="header-image">';
-        printf( '<a title="%s" href="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), genesis_get_image( array( 'size' => $size, 'attr' => $default_attr ) ) );
+        printf( '<a title="%s" href="%s">%s</a>', the_title_attribute( 'echo=0' ), get_permalink(), genesis_get_image( array( 'size' => $size, 'attr' => $default_attr ) ) );
         print '</section>';
     }
 

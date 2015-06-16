@@ -47,7 +47,8 @@ add_action('genesis_before_loop', 'msdlab_do_category_header'); //move the bread
 add_filter( 'genesis_post_info', 'msdlab_post_info_filter' );
 
 add_action('genesis_after_header', 'genesis_do_breadcrumbs'); //to outside of the loop area
-add_action('genesis_before_post_content','msd_post_image');//add the image above the entry
+remove_action('genesis_entry_content','genesis_do_post_image',8);
+add_action('genesis_entry_header','msd_post_image', 20);//add the image above the entry
 
 add_filter('excerpt_more', 'sp_read_more_link');
 add_filter( 'the_content_more_link', 'sp_read_more_link' );
@@ -56,8 +57,6 @@ add_filter( 'the_content_more_link', 'sp_read_more_link' );
 remove_action( 'genesis_after_post_content', 'genesis_post_meta' ); //remove the meta (filed under, tags, etc.)
 //remove_action( 'genesis_entry_header', 'genesis_post_info', 12 ); //remove the info (date, posted by,etc.)
 remove_action( 'genesis_entry_footer', 'genesis_post_meta'); //remove the meta (filed under, tags, etc.)
-
-add_action( 'genesis_before_post', 'msdlab_post_image', 8 ); //add feature image across top of content on *pages*.
 
 remove_action( 'genesis_after_endwhile', 'genesis_prev_next_post_nav' );
 add_action( 'genesis_after_endwhile', 'msdlab_prev_next_post_nav' );
