@@ -47,7 +47,7 @@ add_action('genesis_before_loop', 'msdlab_do_category_header'); //move the bread
 add_filter( 'genesis_post_info', 'msdlab_post_info_filter' );
 
 add_action('genesis_after_header', 'genesis_do_breadcrumbs'); //to outside of the loop area
-add_action('genesis_before_entry','msd_post_image');//add the image above the entry
+add_action('genesis_before_post_content','msd_post_image');//add the image above the entry
 
 add_filter('excerpt_more', 'sp_read_more_link');
 add_filter( 'the_content_more_link', 'sp_read_more_link' );
