@@ -314,7 +314,7 @@ function msdlab_newer_link_text($content) {
         return $newerlink;
 }
 
-add_filter( 'genesis_attr_site-container', 'msdlab_background_site_container', 10);
+//add_filter( 'genesis_attr_site-container', 'msdlab_background_site_container', 10);
 function msdlab_background_site_container( $attributes ){
     $attributes['style'] .= 'background-image:url('.msdlab_get_thumbnail_url(null,'full').')';
     return $attributes;

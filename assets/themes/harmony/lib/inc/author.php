@@ -57,7 +57,7 @@ function msdlab_do_author_title_description() {
     }
 
     print $avatar.$name.$headline.$position.$url.$bio;
-
+    print do_shortcode('[author_posts]');
 }
 
 add_shortcode('post_author_thumbnail','msdlab_post_author_thumbnail');
@@ -269,4 +269,64 @@ function msdlab_list_authors( $args = '' ) {
         return $return;
     }
     echo $return;
+}
+
+add_shortcode('author_posts','msdlab_get_the_author_posts');
+function msdlab_get_the_author_posts($atts){
+    $current_author = get_query_var('author');
+    $author_posts=  get_posts( 'author='.$current_author );
+    if($author_posts){
+        foreach ($author_posts as $author_post){
+         $this_post = '';
+         if(has_post_thumbnail( $author_post->ID )){
+             $this_post .= get_the_post_thumbnail( $author_post->ID, 'tiny-post-thumb', array('class' => 'alignleft pull-left') );
+         }
+         $this_post .= '<h4><a href="'.get_permalink($author_post->ID).'" class="entry-title" title="'.$author_post->post_title.'">'.$author_post->post_title.'</a></h4>';
+         $this_post .= '<div class="post-info">Posted '.msdlab_post_date($author_post->ID).'</div>';
+         $this_post = sprintf('<li>%s</li>', $this_post);
+         $list .= $this_post;
+        }
+        $list = sprintf('<ul>%s</ul>',$list);
+        return $list;
+    }
+    return "There are no posts by this contributor.";
+}
+
+/**
+ * Produces the date of post publication.
+ *
+ * Supported shortcode attributes are:
+ *   after (output after link, default is empty string),
+ *   before (output before link, default is empty string),
+ *   format (date format, default is value in date_format option field),
+ *   label (text following 'before' output, but before date).
+ *
+ * Output passes through 'genesis_post_date_shortcode' filter before returning.
+ *
+ * @since 1.1.0
+ *
+ * @param array|string $atts Shortcode attributes. Empty string if no attributes.
+ * @return string Shortcode output
+ */
+function msdlab_post_date( $post_id = false, $atts = array() ) {
+    global $post;
+    $post_id = $post_id?$post_id:$post->ID;
+    $defaults = array(
+        'after'  => '',
+        'before' => '',
+        'format' => get_option( 'date_format' ),
+        'label'  => '',
+    );
+
+    $atts = shortcode_atts( $defaults, $atts, 'post_date' );
+
+    $display = ( 'relative' === $atts['format'] ) ? genesis_human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . ' ' . __( 'ago', 'genesis' ) : get_the_time( $atts['format'], $post_id );
+
+    if ( genesis_html5() )
+        $output = sprintf( '<time %s>', genesis_attr( 'entry-time' ) ) . $atts['before'] . $atts['label'] . $display . $atts['after'] . '</time>';
+    else
+        $output = sprintf( '<span class="date published time" title="%5$s">%1$s%3$s%4$s%2$s</span> ', $atts['before'], $atts['after'], $atts['label'], $display, get_the_time( 'c' ) );
+
+    return apply_filters( 'genesis_post_date_shortcode', $output, $atts );
+
 }
