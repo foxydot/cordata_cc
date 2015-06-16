@@ -57,7 +57,6 @@ function msdlab_do_author_title_description() {
     }
 
     print $avatar.$name.$headline.$position.$url.$bio;
-    print do_shortcode('[author_posts]');
 }
 
 add_shortcode('post_author_thumbnail','msdlab_post_author_thumbnail');
@@ -279,15 +278,21 @@ function msdlab_get_the_author_posts($atts){
         foreach ($author_posts as $author_post){
          $this_post = '';
          if(has_post_thumbnail( $author_post->ID )){
-             $this_post .= get_the_post_thumbnail( $author_post->ID, 'tiny-post-thumb', array('class' => 'alignleft pull-left') );
+             $size = has_image_size('wp_review_small')?'wp_review_small':'tiny-post-thumb';
+             $this_post .= '<div class="wpt_thumbnail wpt_thumb_small"> 
+                 <a href="'.get_permalink($author_post->ID).'" class="entry-title" title="'.$author_post->post_title.'">    
+                 '.get_the_post_thumbnail( $author_post->ID, $size, array('class' => 'alignleft pull-left') ).'
+                 </a>
+                 </div>';
          }
-         $this_post .= '<h4><a href="'.get_permalink($author_post->ID).'" class="entry-title" title="'.$author_post->post_title.'">'.$author_post->post_title.'</a></h4>';
-         $this_post .= '<div class="post-info">Posted '.msdlab_post_date($author_post->ID).'</div>';
+         $this_post .= '<div class="entry-title"><a href="'.get_permalink($author_post->ID).'" class="entry-title" title="'.$author_post->post_title.'">'.$author_post->post_title.'</a></div>';
+         $this_post .= '<div class="wpt-postmeta post-info">Posted '.msdlab_post_date($author_post->ID).'</div>
+            <div class="clear"></div>  ';
          $this_post = sprintf('<li>%s</li>', $this_post);
          $list .= $this_post;
         }
-        $list = sprintf('<ul>%s</ul>',$list);
-        return $list;
+        $list = sprintf('<div class="wpt_widget_content"><ul class="tab-content">%s</ul></div>',$list);
+        return $list;    
     }
     return "There are no posts by this contributor.";
 }
