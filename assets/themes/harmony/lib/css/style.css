@@ -7691,6 +7691,20 @@ Site Footer
 .entry-content ul.author-list li:after {
   clear: both;
 }
+.page-footer-widget .gform_description {
+  color: #005db9;
+}
+.page-footer-widget .gform_description i.msd-fa {
+  position: relative;
+  top: 1rem;
+  margin-right: 1rem;
+}
+.page-footer-widget .gform_body input[type=text] {
+  border-radius: 2em;
+}
+.page-footer-widget .gform_footer input[type=submit] {
+  width: auto;
+}
 .nav-responsive ul,
 .nav-responsive li,
 .nav-responsive li a {
