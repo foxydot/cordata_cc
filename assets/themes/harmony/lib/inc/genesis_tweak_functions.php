@@ -15,37 +15,11 @@ function msdlab_make_it_homepage(){
  * Alters loop params
  */
 function msdlab_alter_loop_params($query){
-     if ( ! is_admin() && $query->is_main_query() ) {
-         if($query->is_post_type_archive('event')){
-            $curmonth = strtotime('first day of this month');
-             $meta_query = array(
-                        array(
-                            'key' => '_event_event_datestamp',
-                            'value' => $curmonth,
-                            'compare' => '>'
-                        ),
-                        array(
-                            'key' => '_event_event_datestamp',
-                            'value' => mktime(0, 0, 0, date("m",$curmonth), date("d",$curmonth), date("Y",$curmonth)+1),
-                            'compare' => '<'
-                        )
-                    );
-            $query->set('meta_query',$meta_query);
-            
-            $query->set('meta_key','_event_event_datestamp');
-            $query->set('orderby','meta_value_num');
-            $query->set('order','ASC');
-            $query->set('posts_per_page',-1);
-            $query->set('numposts',-1);
-        } elseif ($query->is_post_type_archive('project') || $query->is_post_type_archive('testimonial')){
-           $query->set('orderby','rand');
-            $query->set('posts_per_page',-1);
-            $query->set('numposts',-1);
-        }
-        if($query->is_post_type_archive('project')){
-           $query->set('orderby',array('meta_value_num'=>'DESC','rand'));
-           $query->set('meta_key','_project_case_study');
-        }
+     if ( ! is_admin() ) {
+         if($query->is_main_query() && $query->is_front_page() ){
+            $query->set('posts_per_page',4);
+            $query->set('max_num_pages',1);
+        } 
     }
 }
 /*** HEADER ***/
@@ -545,7 +519,7 @@ class Description_Walker extends Walker_Nav_Menu
 function msdlab_do_social_footer(){
     global $msd_social;
     global $wp_filter;
-    //ts_var( $wp_filter['genesis_entry_content'] );
+    //ts_var( $wp_filter['genesis_entry_header'] );
     
     if(has_nav_menu('footer_menu')){$footer_menu .= wp_nav_menu( array( 'theme_location' => 'footer_menu','container_class' => 'menu genesis-nav-menu nav-footer','echo' => FALSE ) );}
     

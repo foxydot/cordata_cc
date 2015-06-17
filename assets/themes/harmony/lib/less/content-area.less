@@ -240,23 +240,11 @@ li.comment {
 
 /* Featured Post Grid
 ------------------------------------------------------------ */
-
-.genesis-grid-even {
-  float: right;
-  padding: 0 0 15px;
-  width: 48%;
-}
-
-.genesis-grid-odd {
-  clear: both;
-  float: left;
-  padding: 0 0 15px;
-  width: 48%;
-}
-
-.genesis-grid-even,
-.genesis-grid-odd {
-  margin: 0 0 20px;
+.genesis-feature{
+  .clearfix;
+  .entry-subtitle{
+    margin-bottom: 0;
+  }
 }
 
 #content hr {
@@ -271,6 +259,10 @@ li.comment {
 
 .genesis-grid.post {
     border-bottom: medium none;
+    .entry-title{
+      .customheader(1.8);
+      line-height: 1;
+    }
 }
 
 .more .comments {

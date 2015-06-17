@@ -4,6 +4,7 @@
  */
 add_image_size('author', 150, 200, TRUE);
 add_image_size('tiny-post-thumb', 45, 45, TRUE);
+add_image_size( 'post-image-small', 150, 100, TRUE );
 add_image_size( 'post-image', 553, 150, TRUE ); //image to float at the top of the post. Reversed Out does these a lot.
 
 /* Display a custom favicon */
@@ -15,10 +16,9 @@ function msdlab_favicon_filter( $favicon_url ) {
 /**
  * Manipulate the featured image
  */
-function msd_post_image() {
+function msd_post_image($size = 'post-image' ) {
     global $post;
     //setup thumbnail image args to be used with genesis_get_image();
-    $size = 'post-image'; // Change this to whatever add_image_size you want
     $default_attr = array(
             'class' => "attachment-$size $size",
             'alt'   => $post->post_title,
