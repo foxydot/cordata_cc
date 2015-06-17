@@ -7,7 +7,6 @@ function do_shortcode_gform_description(&$item, $key) {
 
 function walker_do_shortcode_gform_description($form, $ajax) {
     $form['description'] = do_shortcode($form['description']);
-    array_walk_recursive($form['fields'], 'do_shortcode_gform_description');
     
     return $form;
 }
