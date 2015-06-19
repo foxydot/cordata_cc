@@ -55,9 +55,34 @@
   /* Enter Your Custom Styles Here */ 
   
   .mobile-only {display: block;}
+  .header-image{
+    .site-title{
+      a{
+        background-position: center center;
+      }
+    }
+  }
+  .site-header, .pre-header{
+    .widget-area{
+      float: none;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+  .site-header{
+    .widget-area{
+      .social-media{
+        top: -1em;
+      }
+    }
+  }
+  .nav-secondary .wrap li.menu-item > a {font-size:12px;}
   .nav-primary  {
     float: none;
     display: block;
+    .wrap{
+      padding: 0;
+    }
   }
   .nav-responsive {
     text-align: left;
@@ -88,6 +113,8 @@
           display: block;
           list-style: none;
           padding: 0;
+          width: 100%;
+          max-width: 100%;
           a{
             background: @blue;
             color: @white;
@@ -166,6 +193,14 @@
     right: 15px;
     top: 10px;
   }  
+  .content-sidebar .content, .content-sidebar-sidebar .content, .sidebar-content-sidebar .content{ float: none;}
+  article{
+    .header-image{
+      img{
+        max-width: 100%;
+      }
+    }
+  }
 }
 
 
