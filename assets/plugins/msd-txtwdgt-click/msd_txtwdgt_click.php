@@ -9,7 +9,6 @@ Author: Catherine M OBrien Sandrick (CMOS)
 Author URI: http://msdlab.com/biological-assets/catherine-obrien-sandrick/
 License: GPL v2
 */
-define('MSD_ALT_API','http://msdlab.com/plugin-api/');
 
 class MSD_Widget_Text extends WP_Widget {
 
@@ -19,12 +18,6 @@ class MSD_Widget_Text extends WP_Widget {
 		$widget_ops = array('classname' => 'widget_text', 'description' => __('Arbitrary text or HTML with optional URL'));
 		$control_ops = array('width' => 400, 'height' => 350);
 		parent::__construct('text', __('Text'), $widget_ops, $control_ops);
-		// For testing purpose, the site transient will be reset on each page load
-		add_action( 'init', array(&$this,'msd_altapi_delete_transient') );
-		// Hook into the plugin update check
-		add_filter('pre_set_site_transient_update_plugins', array(&$this,'msd_altapi_check'));
-		// Hook into the plugin details screen
-		add_filter('plugins_api', array(&$this,'msd_altapi_information'), 10, 3);
 	}
 
 	function widget( $args, $instance ) {
@@ -38,7 +31,7 @@ class MSD_Widget_Text extends WP_Widget {
 		<div class="textwidget">
 			<?php if ( !empty( $title ) ) { echo $before_title . $title . $after_title; } 
 			echo $instance['filter'] ? wpautop($text) : $text; 
-			if ( !empty( $url ) ) { echo '<div class="readmore"><span>'.$linktext.'</span></div>'; } ?>
+			if ( !empty( $url ) ) { echo '<a href="'.$url.'"'.$target.' class="readmore"><span>'.$linktext.'</span></a>'; } ?>
 		</div>
 		<?php
 		
@@ -101,94 +94,6 @@ class MSD_Widget_Text extends WP_Widget {
 			wp_enqueue_script('msd-widget-text',plugin_dir_url(__FILE__).'/js/msd-widget-text.js','jquery','0.4',TRUE);
 		}
 	}
-	
-	function msd_altapi_delete_transient() {
-	    delete_site_transient( 'update_plugins' );
-	}
-	
-	
-	function msd_altapi_check( $transient ) {
-	
-	    // Check if the transient contains the 'checked' information
-	    // If no, just return its value without hacking it
-	    if( empty( $transient->checked ) )
-	        return $transient;
-	    
-	    // The transient contains the 'checked' information
-	    // Now append to it information form your own API
-	    
-	    $plugin_slug = plugin_basename( __FILE__ );
-	    
-	    // POST data to send to your API
-	    $args = array(
-	        'action' => 'update-check',
-	        'plugin_name' => $plugin_slug,
-	        'version' => $transient->checked[$plugin_slug],
-	    );
-	    
-	    // Send request checking for an update
-	    $response = $this->msd_altapi_request( $args );
-	    
-	    // If response is false, don't alter the transient
-	    if( false !== $response ) {
-	        $transient->response[$plugin_slug] = $response;
-	    }
-	    
-	    return $transient;
-	}
-	
-	// Send a request to the alternative API, return an object
-	function msd_altapi_request( $args ) {
-	
-	    // Send request
-	    $request = wp_remote_post( MSD_ALT_API, array( 'body' => $args ) );
-	    
-	    // Make sure the request was successful
-	    if( is_wp_error( $request )
-	    or
-	    wp_remote_retrieve_response_code( $request ) != 200
-	    ) {
-	        // Request failed
-	        return false;
-	    }
-	    
-	    // Read server response, which should be an object
-	    $response = unserialize( wp_remote_retrieve_body( $request ) );
-	    if( is_object( $response ) ) {
-	        return $response;
-	    } else {
-	        // Unexpected response
-	        return false;
-	    }
-	}
-	
-	
-	
-	function msd_altapi_information( $false, $action, $args ) {
-	
-	    $plugin_slug = plugin_basename( __FILE__ );
-	
-	    // Check if this plugins API is about this plugin
-	    if( $args->slug != $plugin_slug ) {
-	        return false;
-	    }
-	        
-	    // POST data to send to your API
-	    $args = array(
-	        'action' => 'plugin_information',
-	        'plugin_name' => $plugin_slug,
-	        'version' => $transient->checked[$plugin_slug],
-	    );
-	    
-	    // Send request for detailed information
-	    $response = $this->msd_altapi_request( $args );
-	    
-	    // Send request checking for information
-	    $request = wp_remote_post( MSD_ALT_API, array( 'body' => $args ) );
-	
-	    return $response;
-	}
-	
 }
 
 	
