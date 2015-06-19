@@ -16,8 +16,11 @@ function msdlab_favicon_filter( $favicon_url ) {
 /**
  * Manipulate the featured image
  */
-function msd_post_image($size = 'post-image' ) {
+function msd_post_image( $size = 'post-image' ) {
     global $post;
+    if(!$size){
+        $size = 'post-image';
+    }
     //setup thumbnail image args to be used with genesis_get_image();
     $default_attr = array(
             'class' => "attachment-$size $size",
