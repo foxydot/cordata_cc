@@ -7721,6 +7721,7 @@ Site Footer
 }
 .page-footer-widget .gform_body input[type=text] {
   border-radius: 2em;
+  background-color: #f2f3f5;
 }
 .page-footer-widget .gform_footer input[type=submit] {
   width: auto;
