@@ -6182,6 +6182,26 @@ section.layerslider_widget {
 .join-the-conversation {
   margin-bottom: 2rem !important;
 }
+.archive.author .wpt_widget_content li:before,
+.archive.author .wpt_widget_content li:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.archive.author .wpt_widget_content li:after {
+  clear: both;
+}
+.archive.author .wpt_widget_content li:before,
+.archive.author .wpt_widget_content li:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.archive.author .wpt_widget_content li:after {
+  clear: both;
+}
 /*
 Plugins
 ---------------------------------------------------------------------------------------------------- */
