@@ -7571,7 +7571,11 @@ Site Footer
   clear: both;
 }
 .connected-social .social-media {
-  top: 60px;
+  top: 50px;
+}
+.connected-social .social-media a,
+.connected-social .social-media a:hover {
+  font-size: 2rem;
 }
 .connected-social .social-media a.fa {
   line-height: 2;
