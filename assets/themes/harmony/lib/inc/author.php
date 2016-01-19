@@ -92,6 +92,8 @@ function msdlab_post_author_position($atts){
 function msdlab_list_post_authors($atts){
     $atts = shortcode_atts( array(
         'exclude' => array(),
+        'hide_empty' => true,
+        'style' => 'list',
     ), $atts );
     $atts['exclude'] = array_merge($atts['exclude'],array('msd_lab','abby','cole'));
     foreach($atts['exclude'] AS $name){
@@ -100,9 +102,9 @@ function msdlab_list_post_authors($atts){
     }
     $exclude = implode(',',$exclude_ids);
     $args = array(
-    'hide_empty'    => true,
+    'hide_empty'    => $atts['hide_empty'],
     'echo'          => false,
-    'style'         => 'list',
+    'style'         => $atts['style'],
     'exclude'       => $exclude
     );
     
