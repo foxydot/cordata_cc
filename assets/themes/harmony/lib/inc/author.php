@@ -276,7 +276,13 @@ function msdlab_list_authors( $args = '' ) {
 add_shortcode('author_posts','msdlab_get_the_author_posts');
 function msdlab_get_the_author_posts($atts){
     $current_author = get_query_var('author');
-    $author_posts=  get_posts( 'author='.$current_author );
+    $author_last_name = get_the_author_meta('last_name',$current_author);
+    $author_posts = get_posts( 'author='.$current_author );
+    $tagged_posts = get_posts('tag='.sanitize_title($author_last_name));
+    $all_posts = array_merge($author_posts,$tagged_posts);
+    $post_ids = wp_list_pluck( $all_posts, 'ID' );
+    $author_posts = get_posts(array('post__in' => $post_ids,'post_type'=>'post','post_status' => 'publish'));
+    
     if($author_posts){
         foreach ($author_posts as $author_post){
          $this_post = '';
