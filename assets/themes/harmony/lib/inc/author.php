@@ -154,14 +154,15 @@ function msdlab_list_authors( $args = '' ) {
         'show_fullname' => false, 'hide_empty' => true,
         'feed' => '', 'feed_image' => '', 'feed_type' => '', 'echo' => true,
         'style' => 'list', 'html' => true, 'exclude' => '', 'include' => '',
-        'avatar' => true, 'position' => true, 'company' => true, 'bio' => 'excerpt', 'role' => 'contributor'
+        'avatar' => true, 'position' => true, 'company' => true, 'bio' => 'excerpt', 
+        'role' => 'contributor'
     );
 
     $args = wp_parse_args( $args, $defaults );
 
     $return = '';
 
-    $query_args = wp_array_slice_assoc( $args, array( 'orderby', 'order', 'number', 'exclude', 'include' ) );
+    $query_args = wp_array_slice_assoc( $args, array( 'orderby', 'order', 'number', 'exclude', 'include', 'role' ) );
     $query_args['fields'] = 'ids';
     $authors = get_users( $query_args );
 
