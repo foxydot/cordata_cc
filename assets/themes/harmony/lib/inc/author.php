@@ -154,7 +154,7 @@ function msdlab_list_authors( $args = '' ) {
         'show_fullname' => false, 'hide_empty' => true,
         'feed' => '', 'feed_image' => '', 'feed_type' => '', 'echo' => true,
         'style' => 'list', 'html' => true, 'exclude' => '', 'include' => '',
-        'avatar' => true, 'position' => true, 'company' => true, 'bio' => 'excerpt'
+        'avatar' => true, 'position' => true, 'company' => true, 'bio' => 'excerpt', 'role' => 'contributor'
     );
 
     $args = wp_parse_args( $args, $defaults );
