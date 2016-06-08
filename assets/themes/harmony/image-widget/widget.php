@@ -21,7 +21,7 @@ if ( !empty( $description ) ) {
 }
 if ( $link ) {
     $linktext = $linktext != ''?$linktext:'Read More';
-    echo '<div class="link"><a class="'.$this->widget_options['classname'].'-link readmore" href="'.$link.'" target="'.$linktarget.'">'.$linktext.' ></a><div class="clear"></div></div>';
+    echo '<div class="link"><a class="'.$this->widget_options['classname'].'-link readmore" href="'.$link.'" target="'.$linktarget.'">'.$linktext.'</a><div class="clear"></div></div>';
 }
 echo '<div class="clear"></div>';
 echo $after_widget;
